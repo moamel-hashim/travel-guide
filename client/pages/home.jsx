@@ -4,11 +4,12 @@ import SearchBar from '../component/SearchBar';
 import images from '../lib/images';
 
 export default function Home(props) {
+  console.log('value of props in homepage:', props);
   return (
     <>
-    <div className='full-width' style={{ backgroundImage: `url(${images[0]})` }}>
+    <div className='full-width over-flow' style={{ backgroundImage: `url(${images[0]})` }}>
       <Header/>
-      <SearchBar />
+      <SearchBar getHotels={props.getHotels}/>
     </div>
     </>
   );

@@ -12,19 +12,19 @@ app.use(staticMiddleware);
 
 app.use(errorMiddleware);
 
-// app.get('/api/yelp', (req, res) => {
-//   yelp.search({ term: 'food', location: '91941', limit: 10 })
-//     .then(data => { console.log(data); })
-//     .catch(err => { console.error(err); });
-// });
-client.search({
-  term: 'hotels',
-  location: 'san diego',
-  limit: 10
-}).then(res => {
-  console.log(res.jsonBody.businesses);
-}).catch(err => {
-  console.error(err);
+app.get('/api/yelp', (req, res) => {
+  const search = req.query.search;
+  // console.log('value of search:', search);
+  client.search({
+    term: 'hotels',
+    location: `${search}`
+  }).then(data => {
+    const response = data.jsonBody.businesses.filter(response => response.rating >= 4);
+    // console.log('value of response:', response);
+    res.json(response);
+  }).catch(err => {
+    console.error(err);
+  });
 });
 
 app.listen(process.env.PORT, () => {

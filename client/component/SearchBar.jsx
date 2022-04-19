@@ -1,9 +1,11 @@
 import React from 'react';
+// import MainPage from '../pages/SecondPage';
 
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: '' };
+    console.log('the value of this.props:', this.props);
+    this.state = { search: '', routing: location.hash };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
@@ -13,9 +15,10 @@ export default class SearchBar extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
     event.preventDefault();
-    this.setState({ search: '' });
+    console.log('the value of this.props inside of the handleSubmit function', this.props);
+    this.props.getHotels(this.state.search);
+    this.setState({ routing: location.hash = '#mainPage' });
   }
 
   render() {

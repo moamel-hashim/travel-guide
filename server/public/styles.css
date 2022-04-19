@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .full-width {
   width: 100vw;
   height: 100vh;
@@ -5,7 +10,14 @@
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+}
+
+.over-flow {
   overflow: hidden;
+}
+
+.over-flow-x {
+  overflow-x: hidden;
 }
 
 header {
@@ -66,4 +78,86 @@ input:focus {
 .center-search-bar {
   height: 100vh;
   align-items: center;
+}
+
+.hotel-button {
+  padding: 0.4rem 15rem;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(14, 14, 16);
+  color: white;
+}
+
+button {
+  font-family: Open-Sans, sans-serif;
+  font-size: 1.5rem;
+}
+
+.hotel-button:hover {
+  border-bottom: solid 2px rgb(146, 86, 237);
+}
+
+li {
+  list-style: none;
+}
+
+.border-style {
+  border: solid 2px black;
+  background-color: rgb(14, 14, 16);
+  border-radius: 6px;
+  color: whitesmoke;
+  font-family: Open-Sans, sans-serif;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+.box-shadow {
+  box-shadow: -10px 5px 5px rgb(146, 86, 237);
+}
+
+.background-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.background-gray {
+  background-color: #555;
+}
+
+.light-purple {
+  color: rgb(146, 86, 237);
+}
+
+.rating::before {
+  content: "\f089";
+  position: absolute;
+  padding-right: 0;
+  color: rgb(146, 86, 237);
+}
+
+.hotel-div {
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(14, 14, 16);
+  color: white;
+  text-align: center;
+}
+
+.hotel-div:hover {
+  border-bottom: solid 2px rgb(146, 86, 237);
+}
+
+.a {
+  font-size: 1.5rem;
+  font-family: Open-sans, sans-serif;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.a:hover {
+  color: white;
 }
