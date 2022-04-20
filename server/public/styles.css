@@ -59,7 +59,7 @@ img {
 
 .span-position {
   position: relative;
-  right: 2rem;
+  right: 3rem;
 }
 
 .header {
@@ -78,14 +78,6 @@ input:focus {
 .center-search-bar {
   height: 100vh;
   align-items: center;
-}
-
-.hotel-button {
-  padding: 0.4rem 15rem;
-  border: none;
-  border-radius: 6px;
-  background-color: rgb(14, 14, 16);
-  color: white;
 }
 
 button {
@@ -109,12 +101,8 @@ li {
   font-family: Open-Sans, sans-serif;
 }
 
-li:hover {
-  cursor: pointer;
-}
-
 .box-shadow {
-  box-shadow: -10px 5px 5px rgb(146, 86, 237);
+  box-shadow: -3px 3px 6px rgb(146, 86, 237);
 }
 
 .background-image {
@@ -128,13 +116,6 @@ li:hover {
 }
 
 .light-purple {
-  color: rgb(146, 86, 237);
-}
-
-.rating::before {
-  content: "\f089";
-  position: absolute;
-  padding-right: 0;
   color: rgb(146, 86, 237);
 }
 
@@ -160,4 +141,12 @@ li:hover {
 
 .a:hover {
   color: white;
+}
+
+.button-style {
+  border: solid 5px rgb(146, 86, 237);
+  background: transparent;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
 }

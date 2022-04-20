@@ -14,13 +14,11 @@ app.use(errorMiddleware);
 
 app.get('/api/yelp', (req, res) => {
   const search = req.query.search;
-  // console.log('value of search:', search);
   client.search({
     term: 'hotels',
     location: `${search}`
   }).then(data => {
     const response = data.jsonBody.businesses.filter(response => response.rating >= 4);
-    // console.log('value of response:', response);
     res.json(response);
   }).catch(err => {
     console.error(err);

@@ -1,24 +1,17 @@
 import React from 'react';
 
 export default class Hotels extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = { hotels: [] };
-    console.log('value of this.props in the Hotels class:', this.props.hotels);
-  }
-
   render() {
     const { hotels } = this.props;
     return (
       hotels.map((hotel, index) => {
-        console.log('value of hotel parameter:', hotel);
         return (
           <div className="mt-5 border-style box-shadow" key={index}>
             <div className="row ps-3">
               <div className="img-container w-25 rounded background-image" style={{ backgroundImage: `url(${hotel.image_url})` }}>
               </div>
-              <div className='title-container w-75'>
-                <h1 className="color-white">{hotel.name}</h1>
+              <div className='title-container w-50'>
+                <h3 className="color-white fs-4">{hotel.name}</h3>
                 <span><i className='fas fa-star light-purple'></i></span>
                 <span><i className='fas fa-star light-purple'></i></span>
                 <span><i className='fas fa-star light-purple'></i></span>
@@ -29,8 +22,12 @@ export default class Hotels extends React.Component {
                   <p><span className='background-gray p-1 rounded'>{hotel.categories[0].title}</span> {hotel.location.city}</p>
                 </div>
                 <div className="w-100">
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, deserunt.</p>
+                  <p>{`address: ${hotel.location.address1}, ${hotel.location.city}, ${hotel.location.zip_code}`}<br></br>
+                  {`phone number: ${hotel.display_phone}`}</p>
                 </div>
+              </div>
+              <div className="button-container w-25 d-flex justify-content-end">
+                <a className='button-style p-4 d-flex align-items-center' href={`#hotel-details?hotelId=${hotel.alias}`}><i className='fas fa-chevron-right light-purple'></i></a>
               </div>
             </div>
           </div>

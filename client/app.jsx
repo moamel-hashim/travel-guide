@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './pages/Home';
 import { parseRoute } from './lib';
 import MainPage from './pages/SecondPage';
+import HotelDetails from './pages/hotel-detail';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,19 +26,20 @@ export default class App extends React.Component {
     if (route.path === 'mainPage') {
       return <MainPage hotels={this.state.hotelsData}/>;
     }
+    if (route.path === 'hotel-details') {
+      return <HotelDetails />;
+    }
   }
 
   getHotels(search) {
     fetch(`/api/yelp?search=${search}`)
       .then(res => res.json())
       .then(data => {
-        console.log('value of data in the App:', data);
         this.setState({ hotelsData: data });
       });
   }
 
   render() {
-    console.log('value of hotels data in the app render:', this.state.hotelsData);
     return (
       <>
       { this.renderPage() }
