@@ -11,7 +11,7 @@ export default class Hotels extends React.Component {
               <div className="img-container w-25 rounded background-image" style={{ backgroundImage: `url(${hotel.image_url})` }}>
               </div>
               <div className='title-container w-50'>
-                <h3 className="color-white fs-4">{hotel.name}</h3>
+                <h3 className="color-white fs-5">{hotel.name}</h3>
                 <span><i className='fas fa-star light-purple'></i></span>
                 <span><i className='fas fa-star light-purple'></i></span>
                 <span><i className='fas fa-star light-purple'></i></span>

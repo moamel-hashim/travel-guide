@@ -173,5 +173,5 @@ a:hover {
 
 ::-webkit-scrollbar-thumb {
   background: rgb(14, 14, 16);
-  border-radius: 15px;
+  border-radius: 100vw;
 }
