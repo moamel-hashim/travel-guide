@@ -25,6 +25,16 @@ app.get('/api/yelp', (req, res) => {
   });
 });
 
+app.get('/api/yelp', (req, res) => {
+  console.log('value of req.body', req.body);
+  const hotelId = req.query.hotelId;
+  console.log('value of hotelId', hotelId);
+  client.business(`${hotelId}`)
+    .then(response => {
+      console.log('value of response:', response.jsonBody);
+    });
+});
+
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`express server listening on port ${process.env.PORT}`);

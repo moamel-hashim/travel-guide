@@ -16,7 +16,7 @@ export default class MainPage extends React.Component {
         <Header />
         <div className="container">
         <MainPageHeader />
-        <ul>
+        <ul className='pb-4'>
           <li>
             <Hotels hotels={this.props.hotels}/>
           </li>

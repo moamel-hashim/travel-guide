@@ -135,18 +135,43 @@ li {
   font-size: 1.5rem;
   font-family: Open-sans, sans-serif;
   color: white;
-  text-decoration: none;
   cursor: pointer;
 }
 
-.a:hover {
-  color: white;
-}
-
 .button-style {
-  border: solid 5px rgb(146, 86, 237);
+  border-left: solid 1px rgb(146, 86, 237);
   background: transparent;
   border-radius: 6px;
   text-decoration: none;
   cursor: pointer;
+  transition: background 2s;
+}
+
+.button-style:hover {
+  background-color: rgb(146, 86, 237);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+.font-size {
+  font-size: 3rem;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(14, 14, 16);
+  border-radius: 15px;
 }

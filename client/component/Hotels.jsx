@@ -22,12 +22,12 @@ export default class Hotels extends React.Component {
                   <p><span className='background-gray p-1 rounded'>{hotel.categories[0].title}</span> {hotel.location.city}</p>
                 </div>
                 <div className="w-100">
-                  <p>{`address: ${hotel.location.address1}, ${hotel.location.city}, ${hotel.location.zip_code}`}<br></br>
-                  {`phone number: ${hotel.display_phone}`}</p>
+                  <p>{`${hotel.location.address1}, ${hotel.location.city}, ${hotel.location.zip_code}`}<br></br>
+                  {`${hotel.display_phone}`}</p>
                 </div>
               </div>
               <div className="button-container w-25 d-flex justify-content-end">
-                <a className='button-style p-4 d-flex align-items-center' href={`#hotel-details?hotelId=${hotel.alias}`}><i className='fas fa-chevron-right light-purple'></i></a>
+                <a className='button-style p-4 d-flex align-items-center' href={`#hotel-details?hotelId=${hotel.id}`}><i className='fas fa-chevron-right text-white-50'></i></a>
               </div>
             </div>
           </div>
