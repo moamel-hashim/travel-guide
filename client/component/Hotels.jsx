@@ -7,10 +7,10 @@ export default class Hotels extends React.Component {
       hotels.map((hotel, index) => {
         return (
           <div className="mt-5 border-style box-shadow" key={index}>
-            <div className="row ps-3">
-              <div className="img-container w-25 rounded background-image" style={{ backgroundImage: `url(${hotel.image_url})` }}>
+            <div className="row image-padding">
+              <div className="img-container w-25 background-image custom-border" style={{ backgroundImage: `url(${hotel.image_url})` }}>
               </div>
-              <div className='title-container w-50'>
+              <div className='title-container w-50 mt-3 mb-3'>
                 <h3 className="color-white fs-5">{hotel.name}</h3>
                 <span><i className='fas fa-star light-purple'></i></span>
                 <span><i className='fas fa-star light-purple'></i></span>
