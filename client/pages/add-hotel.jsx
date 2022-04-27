@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../component/header';
 import DarkBackground from '../component/dark-background';
-import NewHotel from '../component/new-hotel';
+import FormHotel from '../component/add-hotel-form';
 import MainPageHeader from '../component/MainPageNav';
 export default class AddHotel extends React.Component {
   render() {
@@ -9,9 +9,9 @@ export default class AddHotel extends React.Component {
       <DarkBackground>
         <Header />
         <div className="container">
-        <MainPageHeader />
+          <MainPageHeader search={this.props.search}/>
         </div>
-        <NewHotel />
+        <FormHotel />
       </DarkBackground>
     );
   }

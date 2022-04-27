@@ -160,7 +160,7 @@ a:hover {
 }
 
 .font-size {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 ::-webkit-scrollbar {
@@ -203,6 +203,13 @@ a:hover {
   background-color: #555;
   color: rgba(255, 255, 255, 0.776);
   border: none;
+  border-right: solid 1px rgba(255, 255, 255, 0.229);
+}
+
+.input-design-zip {
+  background-color: #555;
+  color: rgba(255, 255, 255, 0.776);
+  border: none;
   border-radius: 0 5px 5px 0;
 }
 
@@ -232,6 +239,10 @@ a:hover {
 }
 
 .input-design-state::placeholder {
+  color: rgba(255, 255, 255, 0.21);
+}
+
+.input-design-zip::placeholder {
   color: rgba(255, 255, 255, 0.21);
 }
 
@@ -266,4 +277,26 @@ a:hover {
 .custom-border-right {
   border-radius: 0 5px 5px 0;
   border-left: solid 1px rgba(255, 255, 255, 0.247);
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.file-upload:hover {
+  background-color: rgba(146, 86, 237, 0.726);
+}
+
+.submit-button:hover {
+  background-color: rgba(146, 86, 237, 0.726);
+}
+
+.custom-accordion-button {
+  border: none;
+  background-color: transparent;
+  color: #555;
 }

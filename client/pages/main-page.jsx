@@ -20,7 +20,7 @@ export default class MainPage extends React.Component {
       <DarkBackground>
         <Header />
         <div className="container">
-        <MainPageHeader search={this.props.search}/>
+          <MainPageHeader search={this.props.search}/>
         <ul className='pb-4'>
           <li>
             <AddHotelButton />

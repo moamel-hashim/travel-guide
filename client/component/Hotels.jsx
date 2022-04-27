@@ -26,9 +26,6 @@ export default class Hotels extends React.Component {
                   {`${hotel.display_phone}`}</p>
                 </div>
               </div>
-              <div className="button-container w-25 d-flex justify-content-end">
-                <a className='button-style p-4 d-flex align-items-center' href={`#hotel-details?hotelId=${hotel.id}`}><i className='fas fa-chevron-right text-white-50'></i></a>
-              </div>
             </div>
           </div>
         );
