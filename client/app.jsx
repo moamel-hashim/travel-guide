@@ -13,7 +13,6 @@ export default class App extends React.Component {
     this.state = { route: route, hotelsData: [], addedHotels: [], search: search || null };
     this.getHotels = this.getHotels.bind(this);
     this.getAddedHotel = this.getAddedHotel.bind(this);
-    this.getAddedHotel();
   }
 
   componentDidMount() {
@@ -51,7 +50,8 @@ export default class App extends React.Component {
       <>
         <NewHotel addedHotels={this.state.addedHotels}
                         search={this.state.search}
-                        route={route.path}/>
+                        route={route.path}
+                        getAddedHotel={this.getAddedHotel}/>
       </>
       );
     }

@@ -6,6 +6,10 @@ import CreatedHotel from '../component/created-hotel';
 import AddHotelButton from '../component/add-hotel-button';
 
 export default class NewHotel extends React.Component {
+  componentDidMount() {
+    this.props.getAddedHotel();
+  }
+
   render() {
     return (
       <DarkBackground>
@@ -15,7 +19,7 @@ export default class NewHotel extends React.Component {
                           route={this.props.route}/>
             <ul className='p-4'>
               <li>
-                <AddHotelButton />
+                <AddHotelButton route={this.props.route}/>
                 <CreatedHotel addedHotels={this.props.addedHotels}/>
               </li>
             </ul>
