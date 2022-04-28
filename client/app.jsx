@@ -1,19 +1,27 @@
 import React from 'react';
 import Home from './pages/Home';
 import { parseRoute } from './lib';
-import MainPage from './pages/SecondPage';
-import HotelDetails from './pages/hotel-detail';
+import MainPage from './pages/main-page';
+import AddHotel from './pages/add-hotel';
+import NewHotel from './pages/new-hotel';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { route: parseRoute(location.hash), hotelsData: [] };
+    const route = parseRoute(window.location.hash);
+    const search = route.params.get('search');
+    this.state = { route: route, hotelsData: [], addedHotels: [], search: search || null };
     this.getHotels = this.getHotels.bind(this);
+    this.getAddedHotel = this.getAddedHotel.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener('hashchange', () => {
-      const route = parseRoute(location.hash);
+      const route = parseRoute(window.location.hash);
+      const search = route.params.get('search');
+      if (search) {
+        this.setState({ search });
+      }
       this.setState({ route });
     });
   }
@@ -21,13 +29,31 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <Home getHotels={this.getHotels}/>;
+      return <Home />;
     }
     if (route.path === 'mainPage') {
-      return <MainPage hotels={this.state.hotelsData}/>;
+      const search = route.params.get('search');
+      return (
+        <>
+          <MainPage hotels={this.state.hotelsData}
+                        search={search}
+                        getHotels={this.getHotels}
+                        route={route.path}/>
+      </>
+      );
     }
-    if (route.path === 'hotel-details') {
-      return <HotelDetails />;
+    if (route.path === 'addHotel') {
+      return <AddHotel search={this.state.search}/>;
+    }
+    if (route.path === 'newHotelPage') {
+      return (
+      <>
+        <NewHotel addedHotels={this.state.addedHotels}
+                        search={this.state.search}
+                        route={route.path}
+                        getAddedHotel={this.getAddedHotel}/>
+      </>
+      );
     }
   }
 
@@ -36,6 +62,14 @@ export default class App extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({ hotelsData: data });
+      });
+  }
+
+  getAddedHotel() {
+    fetch('/api/travelGuide')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ addedHotels: data });
       });
   }
 

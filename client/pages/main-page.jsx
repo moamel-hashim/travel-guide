@@ -3,6 +3,7 @@ import Header from '../component/header';
 import Hotels from '../component/hotels';
 import MainPageHeader from '../component/MainPageNav';
 import DarkBackground from '../component/dark-background';
+import AddHotelButton from '../component/add-hotel-button';
 
 export default class MainPage extends React.Component {
   constructor(props) {
@@ -10,14 +11,20 @@ export default class MainPage extends React.Component {
     this.state = { search: '' };
   }
 
+  componentDidMount() {
+    this.props.getHotels(this.props.search);
+  }
+
   render() {
     return (
       <DarkBackground>
         <Header />
         <div className="container">
-        <MainPageHeader />
-        <ul>
+          <MainPageHeader search={this.props.search}
+                          route={this.props.route}/>
+        <ul className='pb-4'>
           <li>
+            <AddHotelButton search={this.props.search}/>
             <Hotels hotels={this.props.hotels}/>
           </li>
         </ul>

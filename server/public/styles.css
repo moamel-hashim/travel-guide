@@ -102,7 +102,7 @@ li {
 }
 
 .box-shadow {
-  box-shadow: -3px 3px 6px rgb(146, 86, 237);
+  box-shadow: -3px 3px 6px #555;
 }
 
 .background-image {
@@ -124,29 +124,178 @@ li {
   border-radius: 6px;
   background-color: rgb(14, 14, 16);
   color: white;
-  text-align: center;
-}
-
-.hotel-div:hover {
-  border-bottom: solid 2px rgb(146, 86, 237);
 }
 
 .a {
   font-size: 1.5rem;
   font-family: Open-sans, sans-serif;
   color: white;
-  text-decoration: none;
   cursor: pointer;
 }
 
 .a:hover {
-  color: white;
+  text-decoration: underline rgb(146, 86, 237);
+  text-underline-offset: 1.9rem;
 }
 
 .button-style {
-  border: solid 5px rgb(146, 86, 237);
+  border-left: solid 1px rgb(146, 86, 237);
   background: transparent;
   border-radius: 6px;
   text-decoration: none;
   cursor: pointer;
+  transition: background 2s;
+}
+
+.button-style:hover {
+  background-color: rgb(146, 86, 237);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+.font-size {
+  font-size: 4rem;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(14, 14, 16);
+  border-radius: 100vw;
+}
+
+.border-right {
+  border-right: solid 1px rgba(255, 255, 255, 0.234);
+}
+
+.container-design {
+  border-radius: 6px;
+  background-color: rgb(14, 14, 16);
+}
+
+.input-design {
+  background-color: #555;
+  color: rgba(255, 255, 255, 0.776);
+  border: none;
+}
+
+.input-design-city {
+  background-color: #555;
+  color: rgba(255, 255, 255, 0.776);
+  border: none;
+  border-right: solid 1px rgba(255, 255, 255, 0.229);
+  border-radius: 5px 0 0 5px;
+}
+
+.input-design-state {
+  background-color: #555;
+  color: rgba(255, 255, 255, 0.776);
+  border: none;
+  border-right: solid 1px rgba(255, 255, 255, 0.229);
+}
+
+.input-design-zip {
+  background-color: #555;
+  color: rgba(255, 255, 255, 0.776);
+  border: none;
+  border-radius: 0 5px 5px 0;
+}
+
+.submit-button {
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 2rem;
+  color: white;
+  background-color: rgb(146, 86, 237);
+}
+
+.file-upload {
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 10rem;
+  background-color: rgb(146, 86, 237);
+  font-size: 1.5rem;
+  color: white;
+}
+
+.input-design::placeholder {
+  color: rgba(255, 255, 255, 0.21);
+}
+
+.input-design-city::placeholder {
+  color: rgba(255, 255, 255, 0.21);
+}
+
+.input-design-state::placeholder {
+  color: rgba(255, 255, 255, 0.21);
+}
+
+.input-design-zip::placeholder {
+  color: rgba(255, 255, 255, 0.21);
+}
+
+.height {
+  height: 10vh;
+}
+
+.circle {
+  background: black;
+  border-radius: 50%;
+  height: 38px;
+}
+
+.plus {
+  position: relative;
+  top: 6px;
+  color: white;
+}
+
+.plus:hover {
+  color: rgb(146, 86, 237);
+}
+
+.custom-border {
+  border-radius: 5px 0 0 5px;
+}
+
+.image-padding {
+  padding-left: 0.7rem;
+}
+
+.custom-border-right {
+  border-radius: 0 5px 5px 0;
+  border-left: solid 1px rgba(255, 255, 255, 0.247);
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.file-upload:hover {
+  background-color: rgba(146, 86, 237, 0.726);
+}
+
+.submit-button:hover {
+  background-color: rgba(146, 86, 237, 0.726);
+}
+
+.underline {
+  text-decoration: underline rgb(146, 86, 237);
+  text-underline-offset: 1.9rem;
 }
