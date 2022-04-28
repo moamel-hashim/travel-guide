@@ -8,7 +8,9 @@ import NewHotel from './pages/new-hotel';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { route: parseRoute(window.location.hash), hotelsData: [], addedHotels: [], search: null };
+    const route = parseRoute(window.location.hash);
+    const search = route.params.get('search');
+    this.state = { route: route, hotelsData: [], addedHotels: [], search: search || null };
     this.getHotels = this.getHotels.bind(this);
     this.getAddedHotel = this.getAddedHotel.bind(this);
     this.getAddedHotel();
@@ -31,16 +33,27 @@ export default class App extends React.Component {
       return <Home />;
     }
     if (route.path === 'mainPage') {
-      return <MainPage hotels={this.state.hotelsData}
-                        search={this.state.search}
-                        getHotels={this.getHotels}/>;
+      const search = route.params.get('search');
+      return (
+        <>
+          <MainPage hotels={this.state.hotelsData}
+                        search={search}
+                        getHotels={this.getHotels}
+                        route={route.path}/>
+      </>
+      );
     }
     if (route.path === 'addHotel') {
       return <AddHotel search={this.state.search}/>;
     }
     if (route.path === 'newHotelPage') {
-      return <NewHotel addedHotels={this.state.addedHotels}
-                        search={this.state.search}/>;
+      return (
+      <>
+        <NewHotel addedHotels={this.state.addedHotels}
+                        search={this.state.search}
+                        route={route.path}/>
+      </>
+      );
     }
   }
 

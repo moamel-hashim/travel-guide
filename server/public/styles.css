@@ -253,7 +253,7 @@ a:hover {
 .circle {
   background: black;
   border-radius: 50%;
-  height: 4vh;
+  height: 38px;
 }
 
 .plus {
@@ -295,8 +295,7 @@ a:hover {
   background-color: rgba(146, 86, 237, 0.726);
 }
 
-.custom-accordion-button {
-  border: none;
-  background-color: transparent;
-  color: #555;
+.underline {
+  text-decoration: underline rgb(146, 86, 237);
+  text-underline-offset: 1.9rem;
 }

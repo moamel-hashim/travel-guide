@@ -1,11 +1,9 @@
 import React from 'react';
 
-export default class AddHotelButton extends React.Component {
-  render() {
-    return (
+export default function AddHotelButton(props) {
+  return (
       <div className='row justify-content-end align-items-end height'>
-        <a href="#addHotel" className='w-auto circle' title='New'><i className='fas fa-plus plus'></i></a>
+        <a href={`#addHotel?search=${props.search}`} className='w-auto circle' title='New'><i className='fas fa-plus plus'></i></a>
       </div>
-    );
-  }
+  );
 }

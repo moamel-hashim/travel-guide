@@ -11,7 +11,8 @@ export default class NewHotel extends React.Component {
       <DarkBackground>
         <Header />
         <div className='container'>
-          <MainPageHeader search={this.props.search}/>
+          <MainPageHeader search={this.props.search}
+                          route={this.props.route}/>
             <ul className='p-4'>
               <li>
                 <AddHotelButton />
