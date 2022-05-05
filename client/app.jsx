@@ -61,7 +61,8 @@ export default class App extends React.Component {
     if (route.path === 'editPage') {
       const hotelId = route.params.get('hotelId');
       return <EditPage search={this.state.search}
-                        route={hotelId}/>;
+                        route={hotelId}
+                        hotelId={hotelId}/>;
     }
   }
 

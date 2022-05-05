@@ -5,7 +5,6 @@ export default class CreatedHotel extends React.Component {
     const { addedHotels } = this.props;
     return (
       addedHotels.map((hotel, index) => {
-        console.log(hotel);
         return (
           <div className="mt-5 border-style box-shadow position-relative" key={index}>
             <div className="row image-padding">

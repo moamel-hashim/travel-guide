@@ -65,6 +65,65 @@ app.post('/api/travelGuide', uploadsMiddleware, (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/travelGuide/:hotelId', (req, res, next) => {
+  const hotelId = Number(req.params.hotelId);
+  if (!hotelId) {
+    res.status(400).json({ error: `invalid hotelId ${hotelId}` });
+  }
+  const sql = `
+  select  "hotelId",
+          "name",
+          "description",
+          "line1",
+          "city",
+          "state",
+          "zipCode",
+          "phoneNumber",
+          "photoUrl"
+     from "hotels"
+     where "hotelId" = $1`;
+  const params = [hotelId];
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows[0]) {
+        res.status(404).json({ error: `cannot find hotel with hotelId ${hotelId}` });
+      }
+      res.json(result.rows[0]);
+    })
+    .catch(err => next(err));
+});
+
+app.patch('/api/travelGuide/:hotelId', uploadsMiddleware, (req, res, next) => {
+  const hotelId = Number(req.params.hotelId);
+  const imageUrl = `/images/${req.file.filename}`;
+  const { hotelName, streetAddress, description, city, state, zipCode, phoneNumber } = req.body;
+  if (!Number.isInteger(hotelId) || hotelId < 0) {
+    res.status(400).json({ error: `invalid hotelId ${hotelId}` });
+    return;
+  }
+  const sql = `
+  update "hotels"
+    set "name" = $1,
+        "description" = $2,
+        "line1" = $3,
+        "city" = $4,
+        "state" = $5,
+        "zipCode" = $6,
+        "phoneNumber" = $7,
+        "photoUrl" = $8
+    where "hotelId" = $9
+  returning *`;
+  const params = [hotelName, description, streetAddress, city, state, zipCode, phoneNumber, imageUrl, hotelId];
+  db.query(sql, params)
+    .then(response => {
+      if (!response.rows[0]) {
+        res.status(404).json({ error: 'cannot find hotel' });
+      }
+      res.sendStatus(200);
+    })
+    .catch(err => next(err));
+});
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
