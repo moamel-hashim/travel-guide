@@ -6,8 +6,11 @@ export default class CreatedHotel extends React.Component {
     return (
       addedHotels.map((hotel, index) => {
         return (
-          <div className="mt-5 border-style box-shadow" key={index}>
+          <div className="mt-5 border-style box-shadow position-relative" key={index}>
             <div className="row image-padding">
+              <div>
+                <a href={`#editPage?hotelId=${hotel.hotelId}`} className='position-absolute end-0 fs-4 light-purple'><i className='fas fa-edit'></i></a>
+              </div>
               <div className="img-container w-25 background-image custom-border" style={{ backgroundImage: `url(${hotel.photoUrl})` }}>
               </div>
               <div className='title-container w-75 mt-5 mb-5 row'>

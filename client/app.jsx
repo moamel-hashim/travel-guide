@@ -4,13 +4,15 @@ import { parseRoute } from './lib';
 import MainPage from './pages/main-page';
 import AddHotel from './pages/add-hotel';
 import NewHotel from './pages/new-hotel';
+import EditPage from './pages/edit-page';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     const route = parseRoute(window.location.hash);
     const search = route.params.get('search');
-    this.state = { route: route, hotelsData: [], addedHotels: [], search: search || null };
+    const hotelId = route.params.get('hotelId');
+    this.state = { route: route, hotelsData: [], addedHotels: [], search: search || null, hotelId };
     this.getHotels = this.getHotels.bind(this);
     this.getAddedHotel = this.getAddedHotel.bind(this);
   }
@@ -54,6 +56,13 @@ export default class App extends React.Component {
                         getAddedHotel={this.getAddedHotel}/>
       </>
       );
+    }
+
+    if (route.path === 'editPage') {
+      const hotelId = route.params.get('hotelId');
+      return <EditPage search={this.state.search}
+                        route={hotelId}
+                        hotelId={hotelId}/>;
     }
   }
 
