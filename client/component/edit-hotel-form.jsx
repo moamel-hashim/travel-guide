@@ -88,33 +88,33 @@ export default class EditHotelForm extends React.Component {
                 <label htmlFor="hotel-name" className='color-white fs-5'>Hotel Name</label>
                 <div>
                   <input type="text" name='hotelName' id='hotel-name' className='w-100 mt-3 mb-3 input-design p-2 rounded' placeholder='Enter a hotel name'
-                  required
-                  onChange={this.handleChange} value={hotelName} />
+                    required
+                    onChange={this.handleChange} value={hotelName} />
                 </div>
                 <label htmlFor="street-address" className='color-white fs-5'>Street address</label>
                 <div>
                   <input type="text" name='streetAddress' id='street-address' className='w-100 mt-3 mb-3 input-design p-2 rounded' placeholder='Address'
-                  required
-                  onChange={this.handleChange} value={streetAddress} />
+                    required
+                    onChange={this.handleChange} value={streetAddress} />
                 </div>
                 <label htmlFor="city" className='w-50 color-white fs-5'>City</label>
                 <label htmlFor="state" className='w-25 color-white fs-5'>State</label>
                 <label htmlFor="zip-code" className='w-25 color-white fs-5'>Zip Code</label>
                 <div className='row ms-1'>
                   <input type="text" name='city' id='city' className='w-50 mt-3 mb-3 p-2 input-design-city' placeholder='city'
-                  required
-                  onChange={this.handleChange} value={city} />
+                    required
+                    onChange={this.handleChange} value={city} />
                   <input type="text" name='state' id='state' className='w-25 mt-3 mb-3 p-2 input-design-state' placeholder='state'
-                  required
-                  onChange={this.handleChange} value={state} />
+                    required
+                    onChange={this.handleChange} value={state} />
                   <input type="text" name='zipCode' id='zip-code' className='w-25 mb-3 p-2 input-design-zip mt-3' placeholder='zip code'
-                  required
-                  onChange={this.handleChange} value={zipCode} />
+                    required
+                    onChange={this.handleChange} value={zipCode} />
                 </div>
                 <label htmlFor="phone" className='color-white fs-5'>Phone number</label>
                 <div>
                   <input type="tel" name='phoneNumber' id='phone' className='w-100 mt-3 mb-3 input-design p-2 rounded' placeholder='(666) 666-666' onChange={this.handleChange} value={phoneNumber}
-                  required
+                    required
                   />
                 </div>
               </div>
@@ -122,16 +122,16 @@ export default class EditHotelForm extends React.Component {
                 <div className='w-100 ms-4'>
                   <label htmlFor="file" className='file-upload pointer'><i className='fas fa-upload'></i></label>
                   <input type="file" id="file" className='hidden'
-                  required
-                  onChange={this.onFileChange} accept='image/*' ref={this.fileInputRef} />
+                    required
+                    onChange={this.onFileChange} accept='image/*' ref={this.fileInputRef} />
                 </div>
               </div>
               <div className='w-100'>
                 <textarea name="description" id="description" cols="30" rows="10" className='w-100 input-design rounded p-2' placeholder='description' onChange={this.handleChange} value={description}></textarea>
               </div>
-                <div className='button-container text-end w-100'>
-                  <button type='submit' className='submit-button mt-3 mb-3'>Submit</button>
-                </div>
+              <div className='button-container text-end w-100'>
+                <button type='submit' className='submit-button mt-3 mb-3'>Submit</button>
+              </div>
             </div>
           </form>
         </div>

@@ -38,31 +38,31 @@ export default class App extends React.Component {
       return (
         <>
           <MainPage hotels={this.state.hotelsData}
-                        search={search}
-                        getHotels={this.getHotels}
-                        route={route.path}/>
-      </>
+            search={search}
+            getHotels={this.getHotels}
+            route={route.path} />
+        </>
       );
     }
     if (route.path === 'addHotel') {
-      return <AddHotel search={this.state.search}/>;
+      return <AddHotel search={this.state.search} />;
     }
     if (route.path === 'newHotelPage') {
       return (
-      <>
-        <NewHotel addedHotels={this.state.addedHotels}
-                        search={this.state.search}
-                        route={route.path}
-                        getAddedHotel={this.getAddedHotel}/>
-      </>
+        <>
+          <NewHotel addedHotels={this.state.addedHotels}
+            search={this.state.search}
+            route={route.path}
+            getAddedHotel={this.getAddedHotel} />
+        </>
       );
     }
 
     if (route.path === 'editPage') {
       const hotelId = route.params.get('hotelId');
       return <EditPage search={this.state.search}
-                        route={hotelId}
-                        hotelId={hotelId}/>;
+        route={hotelId}
+        hotelId={hotelId} />;
     }
   }
 
@@ -85,7 +85,7 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-      { this.renderPage() }
+        {this.renderPage()}
       </>
     );
   }
