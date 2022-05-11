@@ -299,3 +299,13 @@ a:hover {
   text-decoration: underline rgb(146, 86, 237);
   text-underline-offset: 1.9rem;
 }
+
+.button {
+  background-color: transparent;
+  border: none;
+  color: rgb(146, 86, 237);
+}
+
+.button:hover {
+  color: rgba(197, 63, 63, 0.87);
+}

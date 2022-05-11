@@ -9,7 +9,7 @@ export default class AddHotel extends React.Component {
       <DarkBackground>
         <Header />
         <div className="container">
-          <MainPageHeader search={this.props.search}/>
+          <MainPageHeader search={this.props.search} />
         </div>
         <FormHotel />
       </DarkBackground>

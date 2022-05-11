@@ -23,7 +23,7 @@ export default class Hotels extends React.Component {
                 </div>
                 <div className="w-100">
                   <p>{`${hotel.location.address1}, ${hotel.location.city}, ${hotel.location.zip_code}`}<br></br>
-                  {`${hotel.display_phone}`}</p>
+                    {`${hotel.display_phone}`}</p>
                 </div>
               </div>
             </div>

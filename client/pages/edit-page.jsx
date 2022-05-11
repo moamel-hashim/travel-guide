@@ -9,9 +9,9 @@ export default class EditPage extends React.Component {
       <DarkBackground>
         <Header />
         <div className="container">
-          <MainPageHeader search={this.props.search}/>
+          <MainPageHeader search={this.props.search} />
         </div>
-        <EditHotelForm hotelId={this.props.hotelId}/>
+        <EditHotelForm hotelId={this.props.hotelId} />
       </DarkBackground>
     );
   }
