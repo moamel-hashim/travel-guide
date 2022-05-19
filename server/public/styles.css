@@ -304,8 +304,58 @@ a:hover {
   background-color: transparent;
   border: none;
   color: rgb(146, 86, 237);
+  transition: color 1s;
 }
 
 .button:hover {
   color: rgba(197, 63, 63, 0.87);
+}
+
+.modal-background {
+  height: 50vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  background: black;
+  height: 25vh;
+}
+
+.cancel {
+  padding: 0.5rem 1rem;
+  background-color: #555;
+  color: white;
+  transition: background 1s;
+  cursor: pointer;
+}
+
+.confirm {
+  padding: 0.5rem 1rem;
+  background-color: rgba(197, 63, 63, 0.87);
+  color: white;
+  transition: background 1s;
+  cursor: pointer;
+}
+
+.confirm:hover {
+  background-color: rgba(78, 8, 8, 0.851);
+}
+
+.cancel:hover {
+  background-color: rgb(45, 45, 45);
+}
+
+.overlay {
+  background: black;
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 75%;
+  overflow: hidden;
 }
