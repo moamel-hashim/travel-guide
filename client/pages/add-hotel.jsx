@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../component/header';
 import DarkBackground from '../component/dark-background';
 import FormHotel from '../component/add-hotel-form';
-import MainPageHeader from '../component/MainPageNav';
+import MainPageHeader from '../component/main-page-nav';
 export default class AddHotel extends React.Component {
   render() {
     return (
