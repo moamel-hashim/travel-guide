@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../component/header';
-import Hotels from '../component/hotels';
-import MainPageHeader from '../component/MainPageNav';
+import Hotels from '../component/hotel';
+import MainPageHeader from '../component/main-page-nav';
 import DarkBackground from '../component/dark-background';
 import AddHotelButton from '../component/add-hotel-button';
 
