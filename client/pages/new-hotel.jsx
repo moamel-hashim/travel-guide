@@ -17,7 +17,7 @@ export default class NewHotel extends React.Component {
         <div className='container'>
           <MainPageHeader search={this.props.search}
             route={this.props.route} />
-          <ul className='p-4'>
+          <ul>
             <li className='position-relative'>
               <AddHotelButton route={this.props.route} />
               <CreatedHotel addedHotels={this.props.addedHotels}

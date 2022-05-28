@@ -22,7 +22,7 @@ export default class MainPage extends React.Component {
         <div className="container">
           <MainPageHeader search={this.props.search}
                           route={this.props.route}/>
-        <ul className='pb-4'>
+        <ul className='p-0'>
           <li>
             <AddHotelButton search={this.props.search}/>
             <Hotels hotels={this.props.hotels}/>

@@ -7,3 +7,9 @@
 .hidden {
   display: none !important;
 }
+
+@media screen and (min-width: 768px) {
+  .a {
+    font-size: 1.5rem;
+  }
+}

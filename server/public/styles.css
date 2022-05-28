@@ -127,7 +127,7 @@ li {
 }
 
 .a {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-family: Open-sans, sans-serif;
   color: white;
   cursor: pointer;
@@ -297,7 +297,7 @@ a:hover {
 
 .underline {
   text-decoration: underline rgb(146, 86, 237);
-  text-underline-offset: 1.9rem;
+  text-underline-offset: 0.9rem;
 }
 
 .button {

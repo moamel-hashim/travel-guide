@@ -52,7 +52,7 @@ export default class CreatedHotel extends React.Component {
             </div>
             </div>
           </div>
-            <div className="mt-5 border-style box-shadow position-relative" key={index}>
+            <div className="mt-5 border-style box-shadow position-relative" key={hotel.hotelId}>
               <div className="row image-padding">
                 <div className="img-container w-25 background-image custom-border" style={{ backgroundImage: `url(${hotel.photoUrl})` }}>
                 </div>
