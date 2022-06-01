@@ -8,8 +8,29 @@
   display: none !important;
 }
 
+.column-full,
+.column-half {
+  width: 100%;
+}
+
+.file-upload {
+  padding: 0.5rem 3rem;
+}
+
+.half {
+  width: 50%;
+}
+
 @media screen and (min-width: 768px) {
   .a {
     font-size: 1.5rem;
+  }
+
+  .column-full {
+    width: 100%;
+  }
+
+  .column-half {
+    width: 50%;
   }
 }

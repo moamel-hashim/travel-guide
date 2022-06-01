@@ -54,19 +54,19 @@ export default class CreatedHotel extends React.Component {
           </div>
             <div className="mt-5 border-style box-shadow position-relative" key={hotel.hotelId}>
               <div className="row image-padding">
-                <div className="img-container w-25 background-image custom-border" style={{ backgroundImage: `url(${hotel.photoUrl})` }}>
+                <div className="img-container w-50 background-image custom-border" style={{ backgroundImage: `url(${hotel.photoUrl})` }}>
                 </div>
-                <div className='title-container w-75  mb-5 row'>
+                <div className='title-container w-50  mb-5 row'>
                   <div className='mb-5 mt-2'>
                     <a href={`#editPage?hotelId=${hotel.hotelId}`} className='position-absolute end-0 fs-4 light-purple'><i className='fas fa-edit'></i></a>
                     <button className='position-absolute button' onClick={this.handleOnClick}><i className='fas fa-trash' id={hotel.hotelId}></i></button>
                   </div>
                   <h3 className="color-white fs-5">{hotel.name}</h3>
-                  <div className="w-50">
+                  <div className="column-half">
                     <p>{`${hotel.line1}, ${hotel.city}, ${hotel.state}, ${hotel.zipCode}`}<br></br>
                       {`${hotel.phoneNumber}`}</p>
                   </div>
-                  <div className='description w-50'>
+                  <div className='description column-half'>
                     <p>{hotel.description}</p>
                   </div>
                 </div>
