@@ -8,7 +8,7 @@ export default class Hotels extends React.Component {
         return (
           <div className="mt-5 border-style box-shadow" key={hotel.hotelId}>
             <div className="row image-padding">
-              <div className="img-container w-50 background-image custom-border" style={{ backgroundImage: `url(${hotel.image_url})` }}>
+              <div className="img-container column-quarter half background-image custom-border" style={{ backgroundImage: `url(${hotel.image_url})` }}>
               </div>
               <div className='title-container w-50 mt-3 mb-3'>
                 <h3 className="color-white fs-5">{hotel.name}</h3>

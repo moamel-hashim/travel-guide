@@ -196,7 +196,7 @@ a:hover {
   color: rgba(255, 255, 255, 0.776);
   border: none;
   border-right: solid 1px rgba(255, 255, 255, 0.229);
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
 }
 
 .input-design-state {
@@ -204,6 +204,7 @@ a:hover {
   color: rgba(255, 255, 255, 0.776);
   border: none;
   border-right: solid 1px rgba(255, 255, 255, 0.229);
+  border-radius: 5px 0 0 5px;
 }
 
 .input-design-zip {
@@ -296,7 +297,7 @@ a:hover {
 
 .underline {
   text-decoration: underline rgb(146, 86, 237);
-  text-underline-offset: 0.9rem;
+  text-underline-offset: 1.9rem;
 }
 
 .button {

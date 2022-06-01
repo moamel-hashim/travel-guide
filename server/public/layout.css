@@ -14,11 +14,23 @@
 }
 
 .file-upload {
-  padding: 0.5rem 3rem;
+  padding: 0.2rem 3rem;
 }
 
 .half {
   width: 50%;
+}
+
+.width-fit-content {
+  width: fit-content;
+}
+
+.hotel-div {
+  padding: 0.5rem;
+}
+
+.ul-padding {
+  padding: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -32,5 +44,25 @@
 
   .column-half {
     width: 50%;
+  }
+
+  .file-upload {
+    padding: 0.5rem 11rem;
+  }
+
+  .hotel-div {
+    padding: 2rem;
+  }
+
+  .ul-padding {
+    padding-inline-start: 2rem;
+  }
+
+  .half {
+    width: 50%;
+  }
+
+  .column-quarter {
+    width: 25%;
   }
 }

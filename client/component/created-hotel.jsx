@@ -40,21 +40,21 @@ export default class CreatedHotel extends React.Component {
           <>
           <div className={`overlay ${this.state.id === hotel.hotelId ? '' : 'hidden'}`}></div>
           <div className={`modal-background position-absolute w-100 ${this.state.id === hotel.hotelId ? '' : 'hidden'}`}>
-            <div className='modal-container w-50 rounded text-align-center col-2'>
+            <div className='modal-container column-half rounded text-align-center col-2'>
               <h5 className='color-white mt-5 mb-5 fs-5'>{`Are you sure you want to delete ${hotel.name} ?`}</h5>
             <div className="row">
                   <div className="w-50 col-4">
-                <button className='cancel rounded fs-5' onClick={this.handleCancel}>cancel</button>
+                <button className='cancel rounded fs-5 border-0' onClick={this.handleCancel}>cancel</button>
               </div>
                   <div className="w-50 col-4">
-                <button className='confirm rounded fs-5' onClick={this.handleConfirm}>confirm</button>
+                <button className='confirm rounded fs-5 border-0' onClick={this.handleConfirm}>confirm</button>
               </div>
             </div>
             </div>
           </div>
             <div className="mt-5 border-style box-shadow position-relative" key={hotel.hotelId}>
               <div className="row image-padding">
-                <div className="img-container w-50 background-image custom-border" style={{ backgroundImage: `url(${hotel.photoUrl})` }}>
+                <div className="img-container column-quarter half background-image custom-border" style={{ backgroundImage: `url(${hotel.photoUrl})` }}>
                 </div>
                 <div className='title-container w-50  mb-5 row'>
                   <div className='mb-5 mt-2'>
