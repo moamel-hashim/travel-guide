@@ -33,6 +33,10 @@
   padding: 0;
 }
 
+.underline {
+  text-underline-offset: 0.9rem;
+}
+
 @media screen and (min-width: 768px) {
   .a {
     font-size: 1.5rem;
@@ -64,5 +68,9 @@
 
   .column-quarter {
     width: 25%;
+  }
+
+  .underline {
+    text-underline-offset: 1.9rem;
   }
 }
