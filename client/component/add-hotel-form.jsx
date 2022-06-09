@@ -54,7 +54,7 @@ export default class HotelForm extends React.Component {
       body: formData
     })
       .then(() => {
-        location.hash = '#newHotelPage';
+        location.hash = `#newHotelPage?=${this.props.search}`;
       });
   }
 
