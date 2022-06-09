@@ -17,11 +17,13 @@ export default class NewHotel extends React.Component {
         <div className='container'>
           <MainPageHeader search={this.props.search}
             route={this.props.route} />
-          <ul className='p-4'>
+          <ul className='ul-padding'>
             <li className='position-relative'>
-              <AddHotelButton route={this.props.route} />
+              <AddHotelButton route={this.props.route}
+                              search={this.props.search}/>
               <CreatedHotel addedHotels={this.props.addedHotels}
-                            getAddedHotel={this.props.getAddedHotel}/>
+                            getAddedHotel={this.props.getAddedHotel}
+                            search={this.props.search}/>
             </li>
           </ul>
         </div>

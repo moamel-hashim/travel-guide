@@ -62,10 +62,19 @@ export default class HotelForm extends React.Component {
     return (
       <>
         <div className="custom-container mt-5 container-design">
+          <h3 className='color-white text-end'>Add a Hotel</h3>
           <form onSubmit={this.handleSubmit}>
             <div className="row">
               <div className="w-50 pt-4">
                 <img src={this.state.imageUrl} alt="" className='rounded' />
+                <div className="row  align-items-center mb-3 mt-3">
+                  <div className=' ms-3'>
+                    <label htmlFor="file" className='file-upload pointer'><i className='fas fa-upload'></i></label>
+                    <input type="file" id="file" className='hidden'
+                      required
+                      onChange={this.onFileChange} accept='image/*' ref={this.fileInputRef} />
+                  </div>
+                </div>
               </div>
               <div className='input-container w-50 mt-4'>
                 <label htmlFor="hotel-name" className='color-white fs-5'>Hotel Name</label>
@@ -80,17 +89,21 @@ export default class HotelForm extends React.Component {
                     required
                     onChange={this.handleChange} value={this.state.streetAddress} />
                 </div>
-                <label htmlFor="city" className='w-50 color-white fs-5'>City</label>
-                <label htmlFor="state" className='w-25 color-white fs-5'>State</label>
-                <label htmlFor="zip-code" className='w-25 color-white fs-5'>Zip Code</label>
-                <div className='row ms-1'>
-                  <input type="text" name='city' id='city' className='w-50 mt-3 mb-3 p-2 input-design-city' placeholder='city'
+                <label htmlFor="city" className='w-25 color-white fs-5'>City</label>
+                <div className='row ms-1 justify-content-between'>
+                  <input type="text" name='city' id='city' className=' mt-3 mb-3 p-2 input-design-city' placeholder='city'
                     required
                     onChange={this.handleChange} value={this.state.city} />
-                  <input type="text" name='state' id='state' className='w-25 mt-3 mb-3 p-2 input-design-state' placeholder='state'
+                  <div className="width-fit-content p-0 half">
+                    <label htmlFor="state" className='color-white fs-5'>State</label>
+                  </div>
+                  <div className=' width-fit-content p-0 half'>
+                    <label htmlFor="zip-code" className='color-white fs-5'>Zip code</label>
+                  </div>
+                  <input type="text" name='state' id='state' className=' half mt-3 mb-3 p-2 input-design-state' placeholder='state'
                     required
                     onChange={this.handleChange} value={this.state.state} />
-                  <input type="text" name='zipCode' id='zip-code' className='w-25 mb-3 p-2 input-design-zip mt-3' placeholder='zip code'
+                  <input type="text" name='zipCode' id='zip-code' className=' half mb-3 p-2 input-design-zip mt-3' placeholder='zip code'
                     required
                     onChange={this.handleChange} value={this.state.zipCode} />
                 </div>
@@ -99,14 +112,6 @@ export default class HotelForm extends React.Component {
                   <input type="tel" name='phoneNumber' id='phone' className='w-100 mt-3 mb-3 input-design p-2 rounded' placeholder='(666) 666-666' onChange={this.handleChange} value={this.state.phoneNumber}
                     required
                   />
-                </div>
-              </div>
-              <div className="row  align-items-center mb-3 mt-3">
-                <div className='w-100 ms-4'>
-                  <label htmlFor="file" className='file-upload pointer'><i className='fas fa-upload'></i></label>
-                  <input type="file" id="file" className='hidden'
-                    required
-                    onChange={this.onFileChange} accept='image/*' ref={this.fileInputRef} />
                 </div>
               </div>
               <div className='w-100'>

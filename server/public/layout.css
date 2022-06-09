@@ -7,3 +7,70 @@
 .hidden {
   display: none !important;
 }
+
+.column-full,
+.column-half {
+  width: 100%;
+}
+
+.file-upload {
+  padding: 0.2rem 3rem;
+}
+
+.half {
+  width: 50%;
+}
+
+.width-fit-content {
+  width: fit-content;
+}
+
+.hotel-div {
+  padding: 0.5rem;
+}
+
+.ul-padding {
+  padding: 0;
+}
+
+.underline {
+  text-underline-offset: 0.9rem;
+}
+
+@media screen and (min-width: 768px) {
+  .a {
+    font-size: 1.5rem;
+  }
+
+  .column-full {
+    width: 100%;
+  }
+
+  .column-half {
+    width: 50%;
+  }
+
+  .file-upload {
+    padding: 0.5rem 11rem;
+  }
+
+  .hotel-div {
+    padding: 2rem;
+  }
+
+  .ul-padding {
+    padding-inline-start: 2rem;
+  }
+
+  .half {
+    width: 50%;
+  }
+
+  .column-quarter {
+    width: 25%;
+  }
+
+  .underline {
+    text-underline-offset: 1.9rem;
+  }
+}
