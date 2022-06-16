@@ -4,11 +4,13 @@ import Hotels from '../component/hotels';
 import MainPageHeader from '../component/MainPageNav';
 import DarkBackground from '../component/dark-background';
 import AddHotelButton from '../component/add-hotel-button';
+import Lottie from 'react-lottie';
+import * as loader from '../src/69023-world-map-blue.json';
 
 export default class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: '' };
+    this.state = { search: '', isLoading: this.props.isLoading };
   }
 
   componentDidMount() {
@@ -16,9 +18,28 @@ export default class MainPage extends React.Component {
   }
 
   render() {
+    const defaultOptions = {
+      loop: true,
+      autoplay: true,
+      animationData: loader.default,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice'
+      }
+    };
     return (
+      <>
+      {this.props.isLoading === true
+        ? (
+          <Lottie options={defaultOptions}
+            height={window.innerHeight}
+            width={window.innerWidth}
+            isStopped={this.state.isStopped}
+            isPaused={this.state.isPaused} />
+          )
+        : (
+
       <DarkBackground>
-        <Header />
+          <Header />
         <div className="container">
           <MainPageHeader search={this.props.search}
                           route={this.props.route}/>
@@ -30,6 +51,9 @@ export default class MainPage extends React.Component {
         </ul>
         </div>
       </DarkBackground>
+          )}
+      </>
     );
+
   }
 }
