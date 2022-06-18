@@ -42,13 +42,14 @@ export default class MainPage extends React.Component {
           <Header />
         <div className="container">
           <MainPageHeader search={this.props.search}
-                          route={this.props.route}/>
-        <ul className='pb-4'>
-          <li>
-            <AddHotelButton search={this.props.search}/>
-            <Hotels hotels={this.props.hotels}/>
-          </li>
-        </ul>
+            route={this.props.route} />
+          <ul className='ul-padding'>
+            <li>
+              <AddHotelButton search={this.props.search} />
+              <Hotels hotels={this.props.hotels}
+                search={this.props.search} />
+            </li>
+          </ul>
         </div>
       </DarkBackground>
           )}
