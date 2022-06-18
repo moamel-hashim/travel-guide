@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './pages/Home';
+import Home from './pages/home';
 import { parseRoute } from './lib';
 import MainPage from './pages/main-page';
 import AddHotel from './pages/add-hotel';

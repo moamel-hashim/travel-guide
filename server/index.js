@@ -5,7 +5,7 @@ const errorMiddleware = require('./error-middleware');
 const staticMiddleware = require('./static-middleware');
 const uploadsMiddleware = require('./uploads-middleware');
 const Yelp = require('yelp-fusion');
-const client = Yelp.client(process.env.TOKEN_SECRET);
+const client = Yelp.client(process.env.API_KEY);
 const pg = require('pg');
 
 const db = new pg.Pool({
@@ -120,6 +120,22 @@ app.patch('/api/travelGuide/:hotelId', uploadsMiddleware, (req, res, next) => {
       }
       res.sendStatus(200);
     })
+    .catch(err => next(err));
+});
+
+app.delete('/api/travelGuide/:hotelId', (req, res, next) => {
+  const hotelId = Number(req.params.hotelId);
+  if (!Number.isInteger(hotelId) || hotelId < 0) {
+    res.status(400).json({ error: 'invalid hotelId' });
+    return;
+  }
+  const sql = `
+  delete from "hotels"
+  where "hotelId" = $1
+  `;
+  const params = [hotelId];
+  db.query(sql, params)
+    .then(response => res.sendStatus(200))
     .catch(err => next(err));
 });
 
