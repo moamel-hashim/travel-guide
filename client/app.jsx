@@ -5,14 +5,13 @@ import MainPage from './pages/main-page';
 import AddHotel from './pages/add-hotel';
 import NewHotel from './pages/new-hotel';
 import EditPage from './pages/edit-page';
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     const route = parseRoute(window.location.hash);
     const search = route.params.get('search');
     const hotelId = route.params.get('hotelId');
-    this.state = { route: route, hotelsData: [], addedHotels: [], search: search || null, hotelId };
+    this.state = { route: route, hotelsData: [], addedHotels: [], search: search || null, hotelId, isLoading: false };
     this.getHotels = this.getHotels.bind(this);
     this.getAddedHotel = this.getAddedHotel.bind(this);
   }
@@ -40,7 +39,8 @@ export default class App extends React.Component {
           <MainPage hotels={this.state.hotelsData}
             search={search}
             getHotels={this.getHotels}
-            route={route.path} />
+            route={route.path}
+            isLoading={this.state.isLoading}/>
         </>
       );
     }
@@ -67,10 +67,14 @@ export default class App extends React.Component {
   }
 
   getHotels(search) {
+    this.setState({ isLoading: true });
     fetch(`/api/yelp?search=${search}`)
       .then(res => res.json())
       .then(data => {
-        this.setState({ hotelsData: data });
+        this.setState({
+          hotelsData: data,
+          isLoading: false
+        });
       });
   }
 
@@ -85,7 +89,7 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        {this.renderPage()}
+          {this.renderPage()}
       </>
     );
   }
