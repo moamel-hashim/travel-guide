@@ -4,7 +4,7 @@ import Hotels from '../component/hotel';
 import MainPageHeader from '../component/main-page-nav';
 import DarkBackground from '../component/dark-background';
 import AddHotelButton from '../component/add-hotel-button';
-import Lottie from 'react-lottie';
+import Lottie from 'react-lottie-player';
 import * as loader from '../src/69023-world-map-blue.json';
 
 export default class MainPage extends React.Component {
@@ -18,23 +18,16 @@ export default class MainPage extends React.Component {
   }
 
   render() {
-    const defaultOptions = {
-      loop: true,
-      autoplay: true,
-      animationData: loader.default,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
-    };
     return (
       <>
       {this.props.isLoading === true
         ? (
-          <Lottie options={defaultOptions}
-            height={window.innerHeight}
-            width={window.innerWidth}
-            isStopped={this.state.isStopped}
-            isPaused={this.state.isPaused} />
+          <Lottie
+          loop
+            animationData={loader}
+            play
+            style={{ width: window.innerWidth, height: window.innerHeight }}
+            />
           )
         : (
 
