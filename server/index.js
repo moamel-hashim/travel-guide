@@ -5,7 +5,7 @@ const errorMiddleware = require('./error-middleware');
 const staticMiddleware = require('./static-middleware');
 const uploadsMiddleware = require('./uploads-middleware');
 const Yelp = require('yelp-fusion');
-const client = Yelp.client(process.env.TOKEN_SECRET);
+const client = Yelp.client(process.env.API_KEY);
 const pg = require('pg');
 
 const db = new pg.Pool({
