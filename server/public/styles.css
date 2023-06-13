@@ -358,3 +358,20 @@ a:hover {
   opacity: 75%;
   overflow: hidden;
 }
+
+.vh-50 {
+  height: 50vh;
+}
+
+.rick-roll {
+  color: white;
+  transition: color 0.5s;
+}
+
+.rick-roll:hover {
+  color: rgb(146, 86, 237);
+}
+
+.w-20 {
+  width: 20%;
+}

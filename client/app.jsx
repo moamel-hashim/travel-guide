@@ -5,6 +5,7 @@ import MainPage from './pages/main-page';
 import AddHotel from './pages/add-hotel';
 import NewHotel from './pages/new-hotel';
 import EditPage from './pages/edit-page';
+import ErrorHandling from './pages/error-handling';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -64,6 +65,7 @@ export default class App extends React.Component {
         route={hotelId}
         hotelId={hotelId} />;
     }
+    return <ErrorHandling />;
   }
 
   getHotels(search) {
