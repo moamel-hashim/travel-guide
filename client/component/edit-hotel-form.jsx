@@ -80,15 +80,14 @@ export default class EditHotelForm extends React.Component {
       <>
         <div className="custom-container mt-5 container-design">
           <h3 className='color-white text-end'>Edit Hotel</h3>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} encType='multipart/form-data'>
             <div className="row">
               <div className="w-50 pt-4">
                 <img src={imageUrl} alt="" className='rounded' />
                 <div className="row align-items-center mb-3 mt-3">
                   <div className="ms-3">
                 <label htmlFor="file" className='file-upload pointer'><i className='fas fa-upload'></i></label>
-                <input type="file" id="file" className='hidden'
-                  required
+                <input type="file" id="file" className='hidden' name='image'
                   onChange={this.onFileChange} accept='image/*' ref={this.fileInputRef} />
                   </div>
                   </div>

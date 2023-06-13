@@ -63,7 +63,7 @@ export default class HotelForm extends React.Component {
       <>
         <div className="custom-container mt-5 container-design">
           <h3 className='color-white text-end'>Add a Hotel</h3>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} encType='multipart/form-data'>
             <div className="row">
               <div className="w-50 pt-4">
                 <img src={this.state.imageUrl} alt="" className='rounded' />
