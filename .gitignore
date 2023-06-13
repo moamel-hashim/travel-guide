@@ -4,5 +4,4 @@ node_modules
 *.log
 .env
 .vercel
-server/public/main.js.map
-server/public/main.js.LICENSE.txt
+server/public/main.js*
