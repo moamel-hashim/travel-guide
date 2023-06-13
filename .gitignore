@@ -5,4 +5,4 @@ node_modules
 .env
 .vercel
 server/public/main.js.map
-server/public/main.js.LICENS.txt
+server/public/main.js.LICENSE.txt
