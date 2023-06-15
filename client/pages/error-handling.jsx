@@ -2,11 +2,12 @@ import React from 'react';
 import Header from '../component/header';
 import DarkBackground from '../component/dark-background';
 import images from '../lib/images';
-export default class ErrorHandling extends React.Component {
-  render() {
-    return (
+export default function ErrorHandling(props) {
+  const { isError, resetError } = props;
+  return (
       <DarkBackground>
-        <Header />
+        <Header isError={isError}
+                resetError={resetError}/>
         <div className='d-flex justify-content-center align-items-center vh-50'>
 
         <div className='mt-5 custom-border w-50 text-center'>
@@ -20,6 +21,5 @@ export default class ErrorHandling extends React.Component {
           </div>
         </div>
       </DarkBackground>
-    );
-  }
+  );
 }

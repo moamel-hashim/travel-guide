@@ -8,6 +8,7 @@ export default class Header extends React.Component {
 
   handleTravelGuideClick() {
     window.location.hash = '';
+    this.props.resetError();
   }
 
   render() {

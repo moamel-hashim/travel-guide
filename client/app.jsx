@@ -29,16 +29,11 @@ export default class App extends React.Component {
     });
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.isError !== this.state.isError) {
-  //     console.log('isError state updated:', this.state.isError);
-  //   }
-  // }
-
   renderPage() {
     const { route, isError, isLoading } = this.state;
     if (isError) {
-      return <ErrorHandling />;
+      return <ErrorHandling isError={isError}
+                            resetError={this.resetError}/>;
     }
     if (route.path === '') {
       return (
@@ -88,6 +83,13 @@ export default class App extends React.Component {
       );
     }
     return <ErrorHandling />;
+  }
+
+  resetError() {
+    const route = parseRoute(window.location.hash);
+    const search = route.params.get('search');
+    const hotelId = route.params.get('hotelId');
+    this.setState({ route: route, hotelsData: [], addedHotels: [], search: search || null, hotelId, isLoading: false, isError: false });
   }
 
   getHotels(search) {
@@ -141,10 +143,6 @@ export default class App extends React.Component {
       .then(data => {
         this.setState({ addedHotels: data });
       });
-  }
-
-  resetError() {
-    this.setState({ isError: false });
   }
 
   render() {
