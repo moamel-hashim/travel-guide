@@ -70,7 +70,7 @@ export default class HotelForm extends React.Component {
                 <div className="row  align-items-center mb-3 mt-3">
                   <div className=' ms-3'>
                     <label htmlFor="file" className='file-upload pointer'><i className='fas fa-upload'></i></label>
-                    <input type="file" id="file" className='hidden'
+                    <input type="file" id="file" className='hidden' name='image'
                       required
                       onChange={this.onFileChange} accept='image/*' ref={this.fileInputRef} />
                   </div>

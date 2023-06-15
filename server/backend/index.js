@@ -27,9 +27,11 @@ app.get('/api/yelp', (req, res) => {
   }).then(data => {
     const response = data.jsonBody.businesses.filter(response => response.rating >= 4);
     res.json(response);
-  }).catch(err => {
-    console.error(err);
-  });
+  })
+    .catch(err => {
+      console.error(err);
+      res.status(400);
+    });
 });
 
 app.get('/api/travelGuide', (req, res, next) => {
@@ -94,7 +96,6 @@ app.get('/api/travelGuide/:hotelId', (req, res, next) => {
 
 app.patch('/api/travelGuide/:hotelId', uploadsMiddleware, (req, res, next) => {
   const hotelId = Number(req.params.hotelId);
-  const imageUrl = `/images/${req.file.filename}`;
   const { hotelName, streetAddress, description, city, state, zipCode, phoneNumber } = req.body;
   if (!Number.isInteger(hotelId) || hotelId < 0) {
     res.status(400).json({ error: `invalid hotelId ${hotelId}` });
@@ -108,11 +109,10 @@ app.patch('/api/travelGuide/:hotelId', uploadsMiddleware, (req, res, next) => {
         "city" = $4,
         "state" = $5,
         "zipCode" = $6,
-        "phoneNumber" = $7,
-        "photoUrl" = $8
-    where "hotelId" = $9
-  returning *`;
-  const params = [hotelName, description, streetAddress, city, state, zipCode, phoneNumber, imageUrl, hotelId];
+        "phoneNumber" = $7
+        where "hotelId" = $8
+        returning *`;
+  const params = [hotelName, description, streetAddress, city, state, zipCode, phoneNumber, hotelId];
   db.query(sql, params)
     .then(response => {
       if (!response.rows[0]) {
@@ -121,6 +121,11 @@ app.patch('/api/travelGuide/:hotelId', uploadsMiddleware, (req, res, next) => {
       res.sendStatus(200);
     })
     .catch(err => next(err));
+  if (req.file) {
+    const imageUrl = `/images/${req.file.filename}`;
+    db.query('update "hotels" set "photoUrl" = $1 where "hotelId" = $2;', [imageUrl, hotelId])
+      .catch(err => next(err));
+  }
 });
 
 app.delete('/api/travelGuide/:hotelId', (req, res, next) => {

@@ -12,9 +12,10 @@ export default class App extends React.Component {
     const route = parseRoute(window.location.hash);
     const search = route.params.get('search');
     const hotelId = route.params.get('hotelId');
-    this.state = { route: route, hotelsData: [], addedHotels: [], search: search || null, hotelId, isLoading: false };
+    this.state = { route: route, hotelsData: [], addedHotels: [], search: search || null, hotelId, isLoading: false, isError: false };
     this.getHotels = this.getHotels.bind(this);
     this.getAddedHotel = this.getAddedHotel.bind(this);
+    this.resetError = this.resetError.bind(this);
   }
 
   componentDidMount() {
@@ -28,21 +29,23 @@ export default class App extends React.Component {
     });
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.isError !== this.state.isError) {
+  //     console.log('isError state updated:', this.state.isError);
+  //   }
+  // }
+
   renderPage() {
-    const { route } = this.state;
-    if (route.path === '') {
-      return <Home />;
+    const { route, isError, isLoading } = this.state;
+    if (isError) {
+      return <ErrorHandling />;
     }
-    if (route.path === 'mainPage') {
-      const search = route.params.get('search');
+    if (route.path === '') {
       return (
-        <>
-          <MainPage hotels={this.state.hotelsData}
-            search={search}
-            getHotels={this.getHotels}
-            route={route.path}
-            isLoading={this.state.isLoading}/>
-        </>
+        <Home
+          isError={isError}
+          resetError={this.resetError}
+        />
       );
     }
     if (route.path === 'addHotel') {
@@ -51,32 +54,84 @@ export default class App extends React.Component {
     if (route.path === 'newHotelPage') {
       return (
         <>
-          <NewHotel addedHotels={this.state.addedHotels}
+          <NewHotel
+            addedHotels={this.state.addedHotels}
             search={this.state.search}
             route={route.path}
-            getAddedHotel={this.getAddedHotel} />
+            getAddedHotel={this.getAddedHotel}
+          />
         </>
       );
     }
-
     if (route.path === 'editPage') {
       const hotelId = route.params.get('hotelId');
-      return <EditPage search={this.state.search}
-        route={hotelId}
-        hotelId={hotelId} />;
+      return (
+        <EditPage
+          search={this.state.search}
+          route={hotelId}
+          hotelId={hotelId}
+        />
+      );
+    }
+    if (route.path === 'mainPage' && this.state.hotelsData) {
+      const search = route.params.get('search');
+      return (
+        <>
+          <MainPage
+            hotels={this.state.hotelsData}
+            search={search}
+            getHotels={this.getHotels}
+            route={route.path}
+            isLoading={isLoading}
+          />
+        </>
+      );
     }
     return <ErrorHandling />;
   }
 
   getHotels(search) {
-    this.setState({ isLoading: true });
-    fetch(`/api/yelp?search=${search}`)
-      .then(res => res.json())
+    this.setState({ isLoading: true, isError: false });
+
+    const timeoutDuration = 2000;
+
+    const timeoutPromise = new Promise((resolve, reject) => {
+      setTimeout(() => reject(new Error('Timeout')), timeoutDuration);
+    });
+
+    Promise.race([
+      fetch(`/api/yelp?search=${search}`),
+      timeoutPromise
+    ])
+      .then(res => {
+        if (res.status === 200) {
+          return res.json();
+        } else {
+          throw new Error('Error occurred while fetching data');
+        }
+      })
       .then(data => {
         this.setState({
           hotelsData: data,
-          isLoading: false
+          isLoading: false,
+          isError: false
         });
+      })
+      .catch(error => {
+        console.error(error);
+        if (error.message === 'Timeout') {
+          this.setState({
+            isLoading: false,
+            hotelsData: [],
+            isError: true
+          });
+        } else {
+          this.setState({
+            isLoading: false,
+            hotelsData: [],
+            isError: true
+          });
+        }
       });
   }
 
@@ -86,6 +141,10 @@ export default class App extends React.Component {
       .then(data => {
         this.setState({ addedHotels: data });
       });
+  }
+
+  resetError() {
+    this.setState({ isError: false });
   }
 
   render() {
