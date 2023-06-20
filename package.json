@@ -57,6 +57,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "optionalDependencies": {
+    "esbuild-android-arm64": "^0.15.18",
     "fsevents": "2.1.2"
   },
   "engines": {
