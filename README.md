@@ -1,14 +1,14 @@
 # Travel Guide
 
-Travel Guide is a web application for luxuries people who want to find a nice and comfortable hotel on the go.
+Travel Guide is a web application for luxury people who want to find a nice and comfortable hotel on the go.
 
 I wanted to build this app to give people an easier way to find their favorite hotel without going through multiple pages
-wondering and looking through comments and seeing bad reviews. Instead I created a functionality where the app filters out
-all the low rating hotels for a user thus giving the users only the high rated hotels so that the user can enjoy the
+wondering and looking through comments and seeing bad reviews. Instead, I created a functionality where the app filters out
+all the low-rating hotels for a user thus giving the users only the high-rated hotels so that the user can enjoy the
 luxury experience.
 
 ## Check out my website at:
-https://final-project-travel-guide.herokuapp.com/
+https://travel-guide.moamelhashim.com/#
 
 ## Technologies
 
@@ -27,7 +27,7 @@ https://final-project-travel-guide.herokuapp.com/
 ## Features
 
 - User is able to search a city and see all the hotels search results using the Yelp API
-- User is able to add a hotel to their my Hotel page
+- User is able to add a hotel to their My Hotel page
 - User can view all their added hotels
 - User is able to update their added hotels
 - User can delete a hotel
@@ -37,10 +37,10 @@ https://final-project-travel-guide.herokuapp.com/
 
 ## Stretched features I would like to add
 
-- Add a detail page. when a user click on a hotel it would show that hotel in a separate page with more details about the hotel
-- Add google maps so that when a user click to view the hotel they can also get directions to the hotel
-- Add a comment section so that users can view a hotel comments and ratings
-- Add a sign in feature so that users can sign in into their own account
+- Add a detail page. when a user clicks on a hotel it would show that hotel on a separate page with more details about the hotel
+- Add google maps so that when a user clicks to view the hotel they can also get directions to the hotel
+- Add a comment section so that users can view hotel comments and ratings
+- Add a sign-in feature so that users can sign in to their own account
 
 ## Development
 
