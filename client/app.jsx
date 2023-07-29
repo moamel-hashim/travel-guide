@@ -120,7 +120,6 @@ export default class App extends React.Component {
         });
       })
       .catch(error => {
-        console.error(error);
         if (error.message === 'Timeout') {
           this.setState({
             isLoading: false,
