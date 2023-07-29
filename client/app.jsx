@@ -95,7 +95,7 @@ export default class App extends React.Component {
   getHotels(search) {
     this.setState({ isLoading: true, isError: false });
 
-    const timeoutDuration = 2000;
+    const timeoutDuration = 3000;
 
     const timeoutPromise = new Promise((resolve, reject) => {
       setTimeout(() => reject(new Error('Timeout')), timeoutDuration);
